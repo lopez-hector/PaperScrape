@@ -1,0 +1,7 @@
+langchain
+colorama
+pyperclip
+pypdf
+pygments
+openai
+anthropic

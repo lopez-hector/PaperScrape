@@ -45,7 +45,6 @@ class ChatAssistant:
         if custom_context is not None:
             self.conversation.append(SystemMessage(content=custom_context))
 
-
     @staticmethod
     def execute_human_tasks(human_input: str, conversation: List[Union[AIMessage, SystemMessage, HumanMessage]]):
         if human_input.lower() in ['copy', 'copy to clipboard']:
@@ -81,7 +80,7 @@ class ChatAssistant:
             self.conversation.append(human_message_prompt)
 
             output = llm_call(self.LLM, self.conversation).content
-            
+
             print('  ', get_formatted_text(output).replace('\n', '\n  '))
             if output.lower().strip() == 'Have a nice day!!!'.lower():
                 print('EXITING')
