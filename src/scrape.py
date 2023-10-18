@@ -27,7 +27,7 @@ store the json with the name == paper title .json
 """
 from typing import List, Union, Optional
 
-from paperscrape.utils import get_formatted_text, grab_user_input, llm_call
+from src.utils import get_formatted_text, grab_user_input, llm_call
 
 
 class ChatAssistant:
@@ -68,6 +68,7 @@ class ChatAssistant:
 
             executed: bool = self.execute_human_tasks(human_input, self.conversation)
             if executed:
+                human_input = ''
                 continue
 
             if human_input.lower() == 'quit':
@@ -90,7 +91,7 @@ class ChatAssistant:
 
 
 def grab_paper_context(fp):
-    from paperscrape.pdf_reader import parse_pdf
+    from src.pdf_reader import parse_pdf
 
     pages = parse_pdf(fp)
 
